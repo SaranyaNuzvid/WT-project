@@ -1,3 +1,136 @@
-Hii everyone,I have created a repository named WT project and a file called period.html.
-You can also create or make any changes related to this.
-Thankyou.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Validation</title>
+<style>
+button.submit{ background-color:green;
+            border-radius:5px;
+            height:30px;
+            width:100px;
+            margin:20px auto;
+            color:white;
+            cursor:pointer;
+            transition:background-color 0.3s ease;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            display:block;
+        }button.submit:hover{
+            background-color:darkgreen;
+        }
+        .container{
+            border:1px solid green;
+            width:500px;;
+            height:500px;
+            text-align:center;
+            border-radius:10px;
+            box-shadow:0px 4px 8px rgba(0,0,0,0.1);
+            background-image:url("img2.jpg");
+            padding:20px;
+            margin:50px auto;
+           
+        }
+        
+        input[type="text"],input[type="number"],input[type="email"],input[type="password"]{
+            width:300px;
+            padding:6px;
+            margin:10px;
+            border-radius:5px;
+            justify-content:center;
+            font-size:12px;
+        }
+        label {
+            font-weight: bold;
+            font-size:large;
+            margin-left:10%;
+        }
+        .row{
+            margin-top:18%;
+            text-decoration-line:none;
+        }
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        body{
+            background-image:url("img5.jpg"); 
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center; 
+        }
+
+        .account{
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size:14px;
+            font-weight:bold;
+    
+        }
+        a:hover{
+            color:red;
+        }
+        a:active{
+            color:purple;
+        }
+        a:visited{
+            color:blue;
+        }
+       
+    
+      
+       
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+    <form id="register" onsubmit="return login()">
+        <table>
+        <tr><td><label for="Name" id="labelName" > Name:</label></td>
+        <td><input type="text" id="firstName" name="firstName" required ></td></tr>
+       <tr><td> <label for="age" id="labelAge">age:</label></td>
+       <td><input type="number" id="age" name="age" required></td></tr>
+    <tr><td> <label for="email" id="labelEmail">Email:</label></td>
+<td><input type="email" id="email" name="email" required></td></tr>
+<tr><td><label for="password" id="labelPassword">password:</label></td>
+<td><input type="password" id="password" class="password" required></td></tr>
+</table>
+<button name="submit" class="submit" >submit</button>
+<div class="account">
+    <p>already have an account  <a href="login.html">login</a></p>
+</div>
+</form>
+</div>
+</div>
+<script>
+// Function to validate registration form
+function login() {
+var firstName = document.getElementById("firstName").value;
+var email = document.getElementById("email").value;
+var age = document.getElementById("age").value;
+var password=document.getElementById("password").value;
+var firstNameRegex = /^[a-zA-Z]+$/;
+var emailRegex = /^\S+@\S+\.\S+$/;
+const  ageRegex= /^\d{1,2}$/;
+const passwordRegex=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+
+if (!firstNameRegex.test(firstName)) {
+alert("First name should contain only characters.");
+return false;}
+if (!emailRegex.test(email)) {
+alert("Email should be in proper format.");
+return false;
+}
+if (!ageRegex.test(age)) {
+alert("Enter proper age.");
+return false;
+}
+if (!passwordRegex.test(password)) {
+alert("atleast one lowercase,one uppercase,one digit which contains length of 8 characters.");
+return false;
+}
+alert("Registration successful")
+}
+</script>
+</body>
+</html>    
